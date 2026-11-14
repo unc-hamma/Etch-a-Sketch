@@ -20,10 +20,7 @@ body {
     border : 1px solid rgb(29, 29, 196);
     margin: 0;
     padding: 0;
-    /* flex: 1; */
     box-sizing: border-box;
     flex-basis: auto;
-    /* flex-grow: 1;
-    flex-shrink: 1; */
     transition: background-color 1s ;
 }

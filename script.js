@@ -1,5 +1,4 @@
 const container = document.querySelector('#container');
-// const squareDiv = document.querySelector('.square');
 const changeBtn = document.querySelector('button');
 
 let squareNb = 16; 
@@ -17,7 +16,14 @@ function squareCreation(){
 }
 squareCreation();   
 
-container.addEventListener('mouseover', e => e.target.closest('.square').style.backgroundColor = 'brown');
+function randomColor(e){
+    let red = Math.floor(Math.random() * 255) ;
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    e.target.closest('.square').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
+container.addEventListener('mouseover', randomColor);
 
 function changeSquares(){
     squareNb = prompt("how many square per side you want in the new grid?");
