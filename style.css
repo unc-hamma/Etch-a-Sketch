@@ -16,4 +16,5 @@
     width: 35px;
     flex: 0 0 6.25%;
     box-sizing: border-box;
+    transition: background-color 2s ease ;
 }
