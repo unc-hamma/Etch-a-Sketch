@@ -1,15 +1,30 @@
 const container = document.querySelector('#container');
-const squareDiv = document.querySelector('.square');
+// const squareDiv = document.querySelector('.square');
+const changeBtn = document.querySelector('button');
 
-for(let i = 1; i < 256; i++){
-    const clone = squareDiv.cloneNode(true)
-    container.append(clone);
-    // clone.addEventListener('mouseenter', e => e.target.style.backgroundColor = 'red')
-    // const newSquare = document.createElement('div');
-    // newSquare.classList.add("square");
-    // container.append(newSquare);
+let squareNb = 16; 
+let divHeight = container.clientHeight / squareNb; 
+let divWidth = container.clientWidth / squareNb;
+
+function squareCreation(){
+    for(let i = 0; i < squareNb * squareNb; i++){
+        const squareDiv = document.createElement('div');
+        squareDiv.classList.add('square');
+        squareDiv.style.height = `${divHeight}px`;
+        squareDiv.style.width = `${divWidth}px`;
+        container.append(squareDiv);
+    }
 }
+squareCreation();   
 
 container.addEventListener('mouseover', e => e.target.closest('.square').style.backgroundColor = 'brown');
 
-// container.addEventListener('mouseout', e => e.target.closest('.square').style.backgroundColor = 'white');
+function changeSquares(){
+    squareNb = prompt("how many square per side you want in the new grid?");
+    container.innerHTML = "";
+    divHeight = container.clientHeight / squareNb;
+    divWidth = container.clientWidth / squareNb;
+    squareCreation();
+}
+
+changeBtn.addEventListener('click', changeSquares);
